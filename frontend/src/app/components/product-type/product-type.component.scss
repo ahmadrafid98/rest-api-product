@@ -1,0 +1,35 @@
+.table-wrapper {
+  overflow: scroll;
+}
+.container {
+  width: 90%;
+  min-width: 650px;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.form-table {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.submit-button {
+  display: inline-block;
+
+  & button {
+    margin-top: 20%;
+  }
+}
+
+.date2-input {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.date1-input {
+  display: inline-block;
+}

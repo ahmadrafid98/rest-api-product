@@ -1,0 +1,28 @@
+.table-wrapper {
+  overflow: scroll;
+}
+
+.container {
+  width: 90%;
+  min-width: 700px;
+  margin: auto;
+}
+
+.date-input {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.name-input {
+  display: inline-block;
+}
+
+table {
+  width: 100%;
+}
+
+.form-table {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

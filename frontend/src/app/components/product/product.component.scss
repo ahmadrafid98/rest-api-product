@@ -1,0 +1,17 @@
+.table-wrapper {
+  overflow: scroll;
+}
+.container {
+  width: 90%;
+  min-width: 400px;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.form-table {
+  display: flex;
+  justify-content: space-between;
+}

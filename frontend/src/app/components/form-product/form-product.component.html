@@ -1,0 +1,35 @@
+<div class="form-container">
+  <form class="form-product">
+    <div class="input-wrapper">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput [formControl]="nameFormControl" />
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Type</mat-label>
+        <input type="text" matInput [formControl]="typeFormControl" />
+        <mat-error *ngIf="typeFormControl.hasError('required')">
+          Type is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Stock</mat-label>
+        <input type="number" matInput [formControl]="stockFormControl" />
+        <mat-error *ngIf="stockFormControl.hasError('required')">
+          Stock Amount is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="button-wrapper">
+      <button *ngIf="isCreate" mat-raised-button (click)="onCreateData()">
+        Create
+      </button>
+      <button *ngIf="isUpdate" mat-raised-button (click)="onUpdateData()">
+        Update
+      </button>
+    </div>
+  </form>
+</div>
