@@ -48,8 +48,8 @@ export class FormProductTransactionComponent implements OnInit {
   }
 
   dateFormControl = new FormControl('', [Validators.required]);
-  amountSoldFormControl = new FormControl('', [Validators.required]);
-  previousStockQuantityFormControl = new FormControl('', [Validators.required]);
+  amountSoldFormControl = new FormControl('', [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]);
+  previousStockQuantityFormControl = new FormControl('', [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]);
   selectedProduct!: string;
   products: Product[] = [];
   isUpdate: boolean = false;

@@ -18,9 +18,19 @@
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Stock</mat-label>
         <input type="number" matInput [formControl]="stockFormControl" />
-        <mat-error *ngIf="stockFormControl.hasError('required')">
-          Stock Amount is <strong>required</strong>
-        </mat-error>
+        <ng-container
+          *ngIf="
+            stockFormControl.invalid &&
+            (stockFormControl.dirty || stockFormControl.touched)
+          "
+        >
+          <mat-error *ngIf="stockFormControl.errors?.required">
+            is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="stockFormControl.errors?.pattern">
+            must be in format <strong>number</strong>
+          </mat-error>
+        </ng-container>
       </mat-form-field>
     </div>
     <div class="button-wrapper">

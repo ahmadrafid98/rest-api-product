@@ -15,7 +15,7 @@ export class HttpService {
   }
 
   getProductTypes(start: string, end: string, sort: string): Observable<ApiResponse<ProductType>> {
-    return this.http.get<ApiResponse<ProductType>>(`${environment.BASE_URL}/product-transactions/?start=${start}&end=${end}&sort=${sort}`)
+    return this.http.get<ApiResponse<ProductType>>(`${environment.BASE_URL}/product-types/?start=${start}&end=${end}&sort=${sort}`)
   }
 
   getProducts(): Observable<ApiResponse<Product>> {

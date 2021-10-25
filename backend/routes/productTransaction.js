@@ -29,23 +29,7 @@ async function getOne(req, res, next) {
 
 async function getAll(req, res, next) {
   try {
-    const startDate = req.query.start || "";
-    const endDate = req.query.end || "";
-    const sort = req.query.sort || "";
-
-    let productTransactions = {};
-
-    if (startDate !== "" && endDate !== "" && sort !== "") {
-      productTransactions =
-        await productTransactionService.getAllByDateRangeSorted(
-          startDate,
-          endDate,
-          sort
-        );
-    } else {
-      productTransactions = await productTransactionService.getAll();
-    }
-
+    const productTransactions = await productTransactionService.getAll();
     const response = new WebResponse(200, "Ok", [...productTransactions]);
     res.status(200).json(response);
   } catch (error) {

@@ -52,7 +52,7 @@ export class FormProductComponent implements OnInit {
 
   nameFormControl = new FormControl('', [Validators.required]);
   typeFormControl = new FormControl('', [Validators.required]);
-  stockFormControl = new FormControl('', [Validators.required]);
+  stockFormControl = new FormControl('', [Validators.required, Validators.pattern(/\-?\d*\.?\d{1,2}/)]);
   productId: string = "";
   isUpdate: boolean = false;
   isCreate: boolean = false;

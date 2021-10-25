@@ -21,16 +21,36 @@
         />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker touchUi #picker></mat-datepicker>
-        <mat-error *ngIf="dateFormControl.hasError('required')">
-          Date is <strong>required</strong>
-        </mat-error>
+        <ng-container
+          *ngIf="
+            dateFormControl.invalid &&
+            (dateFormControl.dirty || dateFormControl.touched)
+          "
+        >
+          <mat-error *ngIf="dateFormControl.errors?.required">
+            is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="dateFormControl.errors?.pattern">
+            must be in format <strong>number</strong>
+          </mat-error>
+        </ng-container>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Sold Amount</mat-label>
         <input type="text" matInput [formControl]="amountSoldFormControl" />
-        <mat-error *ngIf="amountSoldFormControl.hasError('required')">
-          Sold Amount is <strong>required</strong>
-        </mat-error>
+        <ng-container
+          *ngIf="
+            amountSoldFormControl.invalid &&
+            (amountSoldFormControl.dirty || amountSoldFormControl.touched)
+          "
+        >
+          <mat-error *ngIf="amountSoldFormControl.errors?.required">
+            is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="amountSoldFormControl.errors?.pattern">
+            must be in format <strong>number</strong>
+          </mat-error>
+        </ng-container>
       </mat-form-field>
       <mat-form-field
         *ngIf="isUpdate"
@@ -43,11 +63,20 @@
           matInput
           [formControl]="previousStockQuantityFormControl"
         />
-        <mat-error
-          *ngIf="previousStockQuantityFormControl.hasError('required')"
+        <ng-container
+          *ngIf="
+            previousStockQuantityFormControl.invalid &&
+            (previousStockQuantityFormControl.dirty ||
+              previousStockQuantityFormControl.touched)
+          "
         >
-          Previous Stock Quantity is <strong>required</strong>
-        </mat-error>
+          <mat-error *ngIf="previousStockQuantityFormControl.errors?.required">
+            is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="previousStockQuantityFormControl.errors?.pattern">
+            must be in format <strong>number</strong>
+          </mat-error>
+        </ng-container>
       </mat-form-field>
     </div>
     <div class="button wrapper">
