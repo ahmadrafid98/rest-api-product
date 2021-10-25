@@ -81,7 +81,7 @@ Response :
     "code" : "number",
     "status" : "string",
     "data" : {
-         "uuid" : "string",
+         "uuid" : "string, unique",
          "name" : "string",
          "type" : "string",
          "stock" : "integer"
@@ -107,14 +107,14 @@ Response :
         {
              "uuid" : "string, unique",
              "name": "string",
-             "type": "string"
-             "stock" : "integer",
+             "type": "string",
+             "stock" : "integer"
         },
         {
              "uuid" : "string, unique",
              "name": "string",
-             "type": "string"
-             "stock" : "integer",
+             "type": "string",
+             "stock" : "integer"
          }
     ]
 }
@@ -133,9 +133,9 @@ Response :
 ```json 
 {
     "code" : "number",
-    "status" : "string"
+    "status" : "string",
     "data" : {
-        message: "string"
+        "message" : "string"
     }
 }
 ```
