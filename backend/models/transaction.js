@@ -3,16 +3,31 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Transaction extends Model {
     static associate(models) {
-      this.belongsTo(models.Product);
+      this.belongsTo(models.Product, {
+        foreignKey: "productId",
+        as: "product",
+      });
+    }
+
+    toJSON() {
+      return {
+        ...this.get(),
+        productId: undefined,
+        id: undefined,
+        createdAt: undefined,
+        updatedAt: undefined,
+      };
     }
   }
   Transaction.init(
     {
-      id: DataTypes.UUID,
+      uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
       date: DataTypes.DATE,
       amountSold: DataTypes.INTEGER,
       previousStockQuantity: DataTypes.INTEGER,
-      productId: DataTypes.UUID,
     },
     {
       sequelize,

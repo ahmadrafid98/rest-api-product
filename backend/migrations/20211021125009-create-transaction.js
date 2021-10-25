@@ -4,12 +4,16 @@ module.exports = {
     await queryInterface.createTable("Transactions", {
       id: {
         allowNull: false,
-        defaultValue: Sequelize.UUIDV4,
+        autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      uuid: {
         type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       date: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
       },
       previousStockQuantity: {
@@ -21,7 +25,7 @@ module.exports = {
         defaultValue: 0,
       },
       productId: {
-        type: Sequelize.UUID,
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: "Products",
